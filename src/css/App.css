@@ -1,0 +1,55 @@
+body {
+  background: #8e98a7;
+  color: white;
+  padding-top: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+.app {
+  background: white;
+}
+
+.header {
+  height: 50px;
+  background: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display {
+  height: 245px;
+  background: radial-gradient(
+      123px at 50% 50%,
+      rgba(34, 116, 165, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #1f3a93;
+  background-blend-mode: lighten, normal;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  width: 80px;
+  height: 80px;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  color: #666;
+  /* TODO REPLACE WITH BOOSTRAP CLASS */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+  box-shadow: inset 0px 0px 90px 0px rgba(0, 0, 0, 0.2);
+}
