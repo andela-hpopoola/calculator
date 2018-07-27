@@ -2,14 +2,22 @@ import React from "react";
 import Header from "./Header";
 import Display from "./Display";
 import Buttons from "./Buttons";
+import "../css/App.css";
+import "../css/bootstrap-grid.css";
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Display />
-      <Buttons />
-    </div>
+    <section className="container">
+      <div className="row">
+        <div className="col-12 offset-0 col-sm-8 offset-sm-2 col-md-4 offset-md-4">
+          <main className="app">
+            <Header />
+            <Display />
+            <Buttons />
+          </main>
+        </div>
+      </div>
+    </section>
   );
 };
 
