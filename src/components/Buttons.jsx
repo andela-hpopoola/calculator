@@ -27,7 +27,7 @@ const buttonList = [
 const Buttons = () => (
   <div className="container">
     <div className="row">
-      {buttonList.map(button => <Button {...button} />)}
+      {buttonList.map(button => <Button key={button.name} {...button} />)}
     </div>
   </div>
 );

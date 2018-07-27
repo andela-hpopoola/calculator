@@ -1,5 +1,6 @@
 body {
-  background: red;
+  background: #8e98a7;
+  color: white;
   padding-top: 20px;
   font-family: Roboto, sans-serif;
 }
@@ -11,6 +12,9 @@ body {
 .header {
   height: 50px;
   background: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .display {
@@ -24,13 +28,18 @@ body {
   background-blend-mode: lighten, normal;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .button {
   width: 80px;
   height: 80px;
   border-top: 1px solid #eee;
   border-right: 1px solid #eee;
-  overflow: hidden;
   color: #666;
+  /* TODO REPLACE WITH BOOSTRAP CLASS */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +47,7 @@ body {
 }
 
 .button:hover {
-  box-shadow: inset 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.1);
 }
 
 .button:active {

@@ -1,9 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Button = props => {
-  return <div class="button col-sm-3">{props.label}</div>;
+const Button = ({ label }) => {
+  return <div className="button col-3">{label}</div>;
 };
 
-
+Button.propTypes = {
+  label: PropTypes.string.isRequired
+};
 
 export default Button;
