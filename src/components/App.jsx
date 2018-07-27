@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Display from "./Display";
 import Buttons from "./Buttons";
+import buttonList from "../buttonList";
 import "../css/App.css";
 import "../css/bootstrap-grid.css";
 
@@ -13,7 +14,7 @@ const App = () => {
           <main className="app">
             <Header />
             <Display />
-            <Buttons />
+            <Buttons buttonList={buttonList} />
           </main>
         </div>
       </div>
