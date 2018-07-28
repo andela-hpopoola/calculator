@@ -45,7 +45,7 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             <div
               className="button col-3"
             >
-              /
+               / 
             </div>
             <div
               className="button col-3"
@@ -65,7 +65,7 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             <div
               className="button col-3"
             >
-              *
+               * 
             </div>
             <div
               className="button col-3"
@@ -85,7 +85,7 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             <div
               className="button col-3"
             >
-              -
+               - 
             </div>
             <div
               className="button col-3"
@@ -105,7 +105,7 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             <div
               className="button col-3"
             >
-              +
+               + 
             </div>
             <div
               className="button col-3"
@@ -125,7 +125,7 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             <div
               className="button col-3"
             >
-              =
+               = 
             </div>
           </div>
         </div>
