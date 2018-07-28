@@ -3,7 +3,8 @@ import Buttons from "../../components/Buttons";
 
 describe("Buttons", () => {
   const buttonList = [{ name: "A", label: "A" }, { name: "B", label: "B" }];
-  const wrapper = () => mount(<Buttons buttonList={buttonList} />);
+  const wrapper = () =>
+    mount(<Buttons buttonList={buttonList} onClick={() => {}} />);
 
   describe("when rendered", () => {
     it("has the right class names", () => {
@@ -17,8 +18,8 @@ describe("Buttons", () => {
         wrapper()
           .find("Button")
           .at(1)
-          .props()
-      ).toEqual(buttonList[1]);
+          .props().name
+      ).toEqual(buttonList[1].name);
     });
     it("renders the right label", () => {
       const labels = wrapper()

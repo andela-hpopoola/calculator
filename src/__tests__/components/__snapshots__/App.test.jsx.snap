@@ -18,9 +18,18 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
         >
           Calculator
         </div>
-        <div
+        <section
           className="display"
-        />
+        >
+          <header
+            className="display__calculation"
+          />
+          <main
+            className="display__result"
+          >
+            0
+          </main>
+        </section>
         <div
           className="container"
         >
@@ -29,101 +38,121 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
           >
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               AC
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               +/-
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               %
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
                / 
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               7
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               8
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               9
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
                * 
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               4
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               5
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               6
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
                - 
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               1
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               2
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               3
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
                + 
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               C
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               .
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
               0
             </div>
             <div
               className="button col-3"
+              onClick={[Function]}
             >
                = 
             </div>
