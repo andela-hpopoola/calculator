@@ -19,6 +19,7 @@ body {
 
 .display {
   height: 245px;
+  padding: 20px;
   background: radial-gradient(
       123px at 50% 50%,
       rgba(34, 116, 165, 0.1) 0%,
@@ -26,6 +27,19 @@ body {
     ),
     #1f3a93;
   background-blend-mode: lighten, normal;
+}
+
+.display__calculation {
+  height: 135px;
+  font-size: 18px;
+  color: #cccccc;
+}
+
+.display__result {
+  font-weight: 300;
+  font-size: 48px;
+  color: #ffffff;
+  text-align: right;
 }
 
 .buttons {
@@ -43,7 +57,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease-out;
 }
 
 .button:hover {
@@ -52,4 +66,37 @@ body {
 
 .button:active {
   box-shadow: inset 0px 0px 90px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* https://codepen.io/doggard/pen/dXYzjW */
+.button:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.6);
+  display: block;
+  position: absolute;
+  border-radius: 15px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale(0.001, 0.001);
+}
+
+.button:active:before {
+  animation: effect_dylan 0.8s ease-out;
+}
+
+@keyframes effect_dylan {
+  50% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+  99% {
+    transform: scale(0.001, 0.001);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 1;
+  }
 }
