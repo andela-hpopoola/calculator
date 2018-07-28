@@ -17,6 +17,13 @@ describe("App", () => {
     });
   });
 
+  it("calls click on clicked", () => {
+    const instance = wrapper.instance();
+    expect(wrapper.state("calculation")).toEqual("");
+    instance.handleClick("one", "1");
+    expect(wrapper.state("calculation")).toEqual("1");
+  });
+
   describe("Snapshot", () => {
     it("matches the existing snapshot", () => {
       expect(wrapper).toMatchSnapshot();
