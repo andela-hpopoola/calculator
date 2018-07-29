@@ -85,7 +85,7 @@ class Calculator {
     try {
       this.result = String(eval(this.display));
     } catch (error) {
-      this.result = "ERROR";
+      this.result = "Error";
     }
   }
 
@@ -99,14 +99,19 @@ class Calculator {
       this._clearValues();
     }
 
-    // ac and c button
+    // delete button is pressed
     if (button.type === "delete") {
       this._deleteLastValue();
     }
 
-    // clear display on new calculation
     if (this.lastButton === "equalsTo") {
+      // return if equalsTo button is pressed more than once
+      if (button.type === "equalsTo") {
+        return;
+      }
+      // clear display on new calculation
       this.display = "";
+      this.result = "";
     }
 
     // assign number to current value
@@ -128,13 +133,19 @@ class Calculator {
     // when operator sign is pressed
     // delete current value
     if (button.type === "operator") {
-      if (this.lastButton === "operator") {
+      if (this.lastButton === "operator" || this.lastButton === "decimal") {
         this._deleteLastValue();
       }
-      this.display +=
-        this.display === "" ? `0 + ${button.label}` : ` ${button.label} `;
+
+      // add zero for empty display
+      if (this.display === "") {
+        this.display = "0";
+      }
+
+      this.display += ` ${button.label} `;
       this.currentValue = "";
     }
+
     if (button.type === "equalsTo") {
       // add extra zero to create a valid expression
       const addExtraZero =
@@ -151,24 +162,6 @@ class Calculator {
     }
 
     this.lastButton = button.type;
-  }
-
-  handleOperation(button = {}) {
-    this.updateCurrentValue(button);
-
-    switch (button.name) {
-      case "ac":
-        this.clearValues();
-        break;
-      case "cancel":
-        this.deleteLastValue();
-        break;
-      case "equals":
-        this.getResult();
-      default:
-    }
-
-    return { calculation: this.display, result: this.result };
   }
 }
 

@@ -132,6 +132,11 @@ describe("Calculator", () => {
   describe("togglePlusMinusSign", () => {
     describe("when currentValue has no number", () => {
       it("returns `minus` when currentValue is empty", () => {
+        calculator.currentValue = "";
+        calculator._togglePlusMinusSign();
+        expect(calculator.currentValue).toEqual("-");
+      });
+      it("returns an empty string when currentValue is `minus`", () => {
         calculator.currentValue = "-";
         calculator._togglePlusMinusSign();
         expect(calculator.currentValue).toEqual("");
@@ -202,12 +207,30 @@ describe("Calculator", () => {
         calculator._calculateResult();
         expect(calculator.result).toEqual("Infinity");
       });
+      it("returns Error for invalid operations", () => {
+        calculator.display = "5 *";
+        calculator._calculateResult();
+        expect(calculator.result).toEqual("Error");
+      });
     });
   });
 
   describe("updateCurrentValue", () => {
     beforeEach(() => {
       buttons = calculator.buttons;
+    });
+
+    describe("Invalid Button", () => {
+      beforeEach(() => {
+        setDefaultValues();
+      });
+      it("returns with a wrong parameter", () => {
+        calculator.updateCurrentValue({ button: "unknown" });
+        expect(calculator.currentValue).toEqual("12");
+        expect(calculator.display).toEqual("13.0 + 12");
+        expect(calculator.result).toEqual("0");
+        expect(calculator.lastButton).toEqual("number");
+      });
     });
 
     describe("ac", () => {
@@ -260,7 +283,7 @@ describe("Calculator", () => {
     });
 
     describe("operators", () => {
-      let count = 0;
+      let count;
       const operatorButtons = [15, 11, 7, 3];
       const operators = ["+", "-", "*", "/"];
 
@@ -268,29 +291,55 @@ describe("Calculator", () => {
         setDefaultValues();
       });
 
-      operatorButtons.forEach(position => {
-        it(`renders the right number when pressed`, () => {
-          calculator.updateCurrentValue(buttons[position]);
-          expect(calculator.currentValue).toEqual("");
-          expect(calculator.display).toEqual(`13.0 + 12 ${operators[count]} `);
-          expect(calculator.result).toEqual("0");
-          expect(calculator.lastButton).toEqual("operator");
-          count++;
+      describe("when an operator is pressed", () => {
+        beforeAll(() => {
+          count = 0;
+        });
+        operatorButtons.forEach(position => {
+          it(`renders the right operator`, () => {
+            calculator.updateCurrentValue(buttons[position]);
+            expect(calculator.currentValue).toEqual("");
+            expect(calculator.display).toEqual(
+              `13.0 + 12 ${operators[count]} `
+            );
+            expect(calculator.result).toEqual("0");
+            expect(calculator.lastButton).toEqual("operator");
+            count++;
+          });
         });
       });
 
-      operatorButtons.forEach(position => {
-        count = 0;
-        it(`removes previous operator when another operator is pressed`, () => {
-          calculator.updateCurrentValue(buttons[position]);
-          calculator.updateCurrentValue({
-            name: "mod",
-            label: "~",
-            type: "operator"
+      describe("when another operator is pressed", () => {
+        beforeAll(() => {
+          count = 0;
+        });
+        operatorButtons.forEach(position => {
+          it(`removes previous operator `, () => {
+            calculator.updateCurrentValue(buttons[position]);
+            calculator.updateCurrentValue({
+              name: "mod",
+              label: "~",
+              type: "operator"
+            });
+            expect(calculator.currentValue).toEqual("");
+            expect(calculator.display).toEqual(`13.0 + 12 ~ `);
+            count++;
           });
-          expect(calculator.currentValue).toEqual("");
-          expect(calculator.display).toEqual(`13.0 + 12 ~ `);
-          count++;
+        });
+      });
+
+      describe("when display is empty", () => {
+        beforeAll(() => {
+          count = 0;
+        });
+        operatorButtons.forEach(position => {
+          it(`renders zero before the operator`, () => {
+            calculator.display = "";
+            calculator.updateCurrentValue(buttons[position]);
+            expect(calculator.currentValue).toEqual("");
+            expect(calculator.display).toEqual(`0 ${operators[count]} `);
+            count++;
+          });
         });
       });
     });
@@ -359,6 +408,32 @@ describe("Calculator", () => {
           expect(calculator.display).toEqual("13.0 + 12 + 0 = ");
           expect(calculator.result).toEqual("25");
           expect(calculator.lastButton).toEqual("equalsTo");
+        });
+      });
+
+      describe("when pressed more than once", () => {
+        it("returns with no changes", () => {
+          calculator.updateCurrentValue(buttons[19]);
+          calculator.updateCurrentValue(buttons[19]);
+          calculator.updateCurrentValue(buttons[19]);
+          expect(calculator.currentValue).toEqual("");
+          expect(calculator.display).toEqual("13.0 + 12 = ");
+          expect(calculator.result).toEqual("25");
+          expect(calculator.lastButton).toEqual("equalsTo");
+        });
+      });
+
+      describe("when another button is pressed after equals to", () => {
+        it("clears previous display", () => {
+          calculator.updateCurrentValue(buttons[19]);
+          calculator.updateCurrentValue(buttons[12]); // 1
+          calculator.updateCurrentValue(buttons[13]); // 2
+          calculator.updateCurrentValue(buttons[15]); // +
+          calculator.updateCurrentValue(buttons[14]); // 3
+          expect(calculator.currentValue).toEqual("3");
+          expect(calculator.display).toEqual("12 + 3");
+          expect(calculator.result).toEqual("");
+          expect(calculator.lastButton).toEqual("number");
         });
       });
     });
