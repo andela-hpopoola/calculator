@@ -6,7 +6,10 @@ const Button = props => {
     props.click(props.name, props.label);
   };
   return (
-    <div onClick={handleClick} className="button col-3">
+    <div
+      onClick={handleClick}
+      className={"button col-3 button--color-" + props.color}
+    >
       {props.label}
     </div>
   );
