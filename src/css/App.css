@@ -69,17 +69,17 @@ body {
   box-shadow: inset 0px 0px 90px 0px rgba(31, 58, 147, 0.2);
 }
 
-.button--color-red {
+.button--type-clear:first-child {
   background: #fb3640;
   color: white;
 }
 
-.button--color-gray {
+.button--type-operator {
   background: #f5f5f5;
   color: #444;
 }
 
-.button--color-gray-dark {
+.button--type-equalsTo {
   background: #ddd;
   color: #222;
   border-right-color: #ddd;
