@@ -132,19 +132,40 @@ describe("Calculator", () => {
   describe("togglePlusMinusSign", () => {
     describe("when currentValue has no number", () => {
       it("returns `minus` when currentValue is empty", () => {
+        calculator.display = "12 + ";
         calculator.currentValue = "";
         calculator._togglePlusMinusSign();
         expect(calculator.currentValue).toEqual("-");
+        expect(calculator.display).toEqual("12 + -");
       });
       it("returns an empty string when currentValue is `minus`", () => {
         calculator.currentValue = "-";
+        calculator.display = "12 + -";
         calculator._togglePlusMinusSign();
         expect(calculator.currentValue).toEqual("");
+        expect(calculator.display).toEqual("12 + ");
       });
       it("returns an empty value when currentValue is -", () => {
         calculator.currentValue = "-12";
         calculator._togglePlusMinusSign();
         expect(calculator.currentValue).toEqual("12");
+      });
+
+      describe("when used before an operator", () => {
+        it("displays `minus` correctly", () => {
+          calculator.currentValue = "12";
+          calculator.display = "13 + 12";
+          calculator._togglePlusMinusSign();
+          expect(calculator.currentValue).toEqual("-12");
+          expect(calculator.display).toEqual("13 + -12");
+        });
+        it("diplays number correctly when removed", () => {
+          calculator.currentValue = "-12";
+          calculator.display = "13 + -12";
+          calculator._togglePlusMinusSign();
+          expect(calculator.currentValue).toEqual("12");
+          expect(calculator.display).toEqual("13 + 12");
+        });
       });
     });
 
@@ -273,11 +294,19 @@ describe("Calculator", () => {
         button = buttons[2];
         setDefaultValues();
       });
-      it("renders the right values when pressed", () => {
+      it("deletes the last value when pressed", () => {
         calculator.updateCurrentValue(button);
         expect(calculator.currentValue).toEqual("1");
         expect(calculator.display).toEqual("13.0 + 1");
         expect(calculator.result).toEqual("0");
+        expect(calculator.lastButton).toEqual("delete");
+      });
+      it("deletes equals to", () => {
+        calculator.updateCurrentValue(buttons[19]); // equals to
+        calculator.updateCurrentValue(button);
+        expect(calculator.currentValue).toEqual("12");
+        expect(calculator.display).toEqual("13.0 + 12");
+        expect(calculator.result).toEqual("25");
         expect(calculator.lastButton).toEqual("delete");
       });
     });
@@ -394,13 +423,21 @@ describe("Calculator", () => {
       });
       it("calculates the current display", () => {
         calculator.updateCurrentValue(buttons[19]);
-        expect(calculator.currentValue).toEqual("");
+        expect(calculator.currentValue).toEqual("12");
         expect(calculator.display).toEqual("13.0 + 12 = ");
         expect(calculator.result).toEqual("25");
         expect(calculator.lastButton).toEqual("equalsTo");
       });
 
       describe("bad expressions", () => {
+        it("returns 0 when display is empty", () => {
+          calculator.display = "";
+          calculator.updateCurrentValue(buttons[19]);
+          expect(calculator.currentValue).toEqual("");
+          expect(calculator.display).toEqual("");
+          expect(calculator.result).toEqual("0");
+          expect(calculator.lastButton).toEqual("equalsTo");
+        });
         it("reformats display ending with an operator", () => {
           calculator.updateCurrentValue(buttons[15]); // press +
           calculator.updateCurrentValue(buttons[19]);
@@ -416,7 +453,7 @@ describe("Calculator", () => {
           calculator.updateCurrentValue(buttons[19]);
           calculator.updateCurrentValue(buttons[19]);
           calculator.updateCurrentValue(buttons[19]);
-          expect(calculator.currentValue).toEqual("");
+          expect(calculator.currentValue).toEqual("12");
           expect(calculator.display).toEqual("13.0 + 12 = ");
           expect(calculator.result).toEqual("25");
           expect(calculator.lastButton).toEqual("equalsTo");
@@ -435,6 +472,19 @@ describe("Calculator", () => {
           expect(calculator.result).toEqual("");
           expect(calculator.lastButton).toEqual("number");
         });
+      });
+    });
+  });
+
+  describe("getResult", () => {
+    beforeEach(() => {
+      setDefaultValues();
+    });
+    it("should clears all values", () => {
+      calculator.updateCurrentValue(buttons[19]); //equals
+      expect(calculator.getResult()).toEqual({
+        calculation: "13.0 + 12 = ",
+        result: "25"
       });
     });
   });
