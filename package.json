@@ -2,6 +2,7 @@
   "name": "calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://andela-hpopoola.github.io/calculator/",
   "dependencies": {
     "mathjs": "^5.0.4",
     "react": "^16.4.1",
