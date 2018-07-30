@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Display from "./Display";
 import Buttons from "./Buttons";
-import buttonList from "../buttonList";
+import Calculator from "../lib/Calculator";
 import "../css/App.css";
 import "../css/bootstrap-grid.css";
 
@@ -11,14 +11,15 @@ class App extends Component {
     super(props);
     this.state = {
       calculation: "",
-      result: "0",
-      reset: false
+      result: "0"
     };
+    this.calculator = new Calculator();
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(name, label) {
-    this.setState({ calculation: label });
+  handleClick(button) {
+    this.calculator.updateCurrentValue(button);
+    this.setState(this.calculator.getResult());
   }
 
   render() {
@@ -32,7 +33,10 @@ class App extends Component {
                 calculation={this.state.calculation}
                 result={this.state.result}
               />
-              <Buttons onClick={this.handleClick} buttonList={buttonList} />
+              <Buttons
+                onClick={this.handleClick}
+                buttonList={this.calculator.buttons}
+              />
             </main>
           </div>
         </div>

@@ -37,124 +37,124 @@ exports[`App Snapshot matches the existing snapshot 1`] = `
             className="row"
           >
             <div
-              className="button col-3 button--color-red"
+              className="button col-3 button--type-clear"
               onClick={[Function]}
             >
               AC
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-plusMinus"
               onClick={[Function]}
             >
               +/-
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-delete"
               onClick={[Function]}
             >
-              %
+              &lt;Del
             </div>
             <div
-              className="button col-3 button--color-gray"
+              className="button col-3 button--type-operator"
               onClick={[Function]}
             >
-               / 
+              /
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               7
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               8
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               9
             </div>
             <div
-              className="button col-3 button--color-gray"
+              className="button col-3 button--type-operator"
               onClick={[Function]}
             >
-               * 
+              *
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               4
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               5
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               6
             </div>
             <div
-              className="button col-3 button--color-gray"
+              className="button col-3 button--type-operator"
               onClick={[Function]}
             >
-               - 
+              -
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               1
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               2
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               3
             </div>
             <div
-              className="button col-3 button--color-gray"
+              className="button col-3 button--type-operator"
               onClick={[Function]}
             >
-               + 
+              +
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-clear"
               onClick={[Function]}
             >
               C
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-decimal"
               onClick={[Function]}
             >
               .
             </div>
             <div
-              className="button col-3 button--color-white"
+              className="button col-3 button--type-number"
               onClick={[Function]}
             >
               0
             </div>
             <div
-              className="button col-3 button--color-gray-dark"
+              className="button col-3 button--type-equalsTo"
               onClick={[Function]}
             >
-               = 
+              =
             </div>
           </div>
         </div>
