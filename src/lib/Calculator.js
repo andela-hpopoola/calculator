@@ -1,3 +1,4 @@
+import math from "mathjs";
 class Calculator {
   constructor() {
     this._clearValues();
@@ -86,7 +87,7 @@ class Calculator {
 
   _calculateResult() {
     try {
-      this.result = String(eval(this.display));
+      this.result = String(math.eval(this.display));
     } catch (error) {
       this.result = "Error";
     }
