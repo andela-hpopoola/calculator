@@ -2,7 +2,10 @@ import "../../lib/spec_helper";
 import Buttons from "../../components/Buttons";
 
 describe("Buttons", () => {
-  const buttonList = [{ name: "A", label: "A" }, { name: "B", label: "B" }];
+  const buttonList = [
+    { name: "A", label: "A", type: "number" },
+    { name: "B", label: "B", type: "number" }
+  ];
   const wrapper = () =>
     mount(<Buttons buttonList={buttonList} onClick={() => {}} />);
 

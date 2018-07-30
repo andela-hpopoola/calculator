@@ -1,3 +1,4 @@
+import math from "mathjs";
 class Calculator {
   constructor() {
     this._clearValues();
@@ -51,6 +52,7 @@ class Calculator {
 
     const lastValue = this.display.endsWith(" ") ? 3 : 1;
     this.display = this.display.substring(0, this.display.length - lastValue);
+    // TODO Get current value from display
     if (this.lastButton === "number" && this.currentValue !== "") {
       this.currentValue = this.currentValue.substring(
         0,
@@ -62,9 +64,11 @@ class Calculator {
   _togglePlusMinusSign() {
     if (this.currentValue === "") {
       this.currentValue = "-";
+      this.display += "-";
       return;
     } else if (this.currentValue === "-") {
       this.currentValue = "";
+      this.display = this.display.substring(0, this.display.length - 1);
       return;
     }
 
@@ -83,7 +87,7 @@ class Calculator {
 
   _calculateResult() {
     try {
-      this.result = String(eval(this.display));
+      this.result = String(math.eval(this.display));
     } catch (error) {
       this.result = "Error";
     }
@@ -102,14 +106,14 @@ class Calculator {
     // delete button is pressed
     if (button.type === "delete") {
       this._deleteLastValue();
-    }
-
-    if (this.lastButton === "equalsTo") {
+    } else if (this.lastButton === "equalsTo") {
       // return if equalsTo button is pressed more than once
       if (button.type === "equalsTo") {
         return;
       }
+
       // clear display on new calculation
+      this.currentValue = "";
       this.display = "";
       this.result = "";
     }
@@ -147,21 +151,30 @@ class Calculator {
     }
 
     if (button.type === "equalsTo") {
-      // add extra zero to create a valid expression
-      const addExtraZero =
-        this.lastButton === "operator" || this.lastButton === "decimal";
-      if (addExtraZero) {
-        this.display += "0";
+      if (this.display === "") {
+        this.currentValue = "";
+        this.display = "";
+        this.result = "0";
+      } else {
+        // add extra zero to create a valid expression
+        const addExtraZero =
+          this.lastButton === "operator" || this.lastButton === "decimal";
+        if (addExtraZero) {
+          this.display += "0";
+        }
+
+        // get the result
+        this._calculateResult();
+
+        this.display += ` ${button.label} `;
       }
-
-      // get the result
-      this._calculateResult();
-
-      this.display += ` ${button.label} `;
-      this.currentValue = "";
     }
 
     this.lastButton = button.type;
+  }
+
+  getResult() {
+    return { calculation: this.display, result: this.result };
   }
 }
 

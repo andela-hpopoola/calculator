@@ -17,7 +17,7 @@ Buttons.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-      color: PropTypes.string
+      type: PropTypes.string.isRequired
     })
   ),
   onClick: PropTypes.func.isRequired

@@ -1,29 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = props => {
+const Button = ({ name, label, type, click }) => {
   const handleClick = () => {
-    props.click(props.name, props.label);
+    click({ name, label, type });
   };
   return (
-    <div
-      onClick={handleClick}
-      className={"button col-3 button--color-" + props.color}
-    >
-      {props.label}
+    <div onClick={handleClick} className={"button col-3 button--type-" + type}>
+      {label}
     </div>
   );
 };
 
 Button.propTypes = {
   click: PropTypes.func.isRequired,
-  color: PropTypes.string,
+  type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
-};
-
-Button.defaultProps = {
-  color: ""
 };
 
 export default Button;

@@ -3,6 +3,7 @@ import App from "../../components/App";
 
 describe("App", () => {
   const wrapper = mount(<App />);
+  const button = { name: "one", label: "1", type: "number" };
 
   describe("when rendered", () => {
     it("renders the Header component", () => {
@@ -20,7 +21,7 @@ describe("App", () => {
   it("calls click on clicked", () => {
     const instance = wrapper.instance();
     expect(wrapper.state("calculation")).toEqual("");
-    instance.handleClick("one", "1");
+    instance.handleClick(button);
     expect(wrapper.state("calculation")).toEqual("1");
   });
 
