@@ -1,4 +1,4 @@
-import "../../config/spec_helper";
+import "../../lib/spec_helper";
 import Buttons from "../../components/Buttons";
 
 describe("Buttons", () => {

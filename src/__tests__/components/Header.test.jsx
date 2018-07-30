@@ -1,4 +1,4 @@
-import "../../config/spec_helper";
+import "../../lib/spec_helper";
 import Header from "../../components/Header";
 
 it("formats temp correctly", () => {
