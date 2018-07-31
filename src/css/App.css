@@ -1,5 +1,5 @@
 body {
-  background: #8e98a7;
+  background: #bdc3c7;
   color: white;
   padding-top: 20px;
   font-family: Roboto, sans-serif;
@@ -7,11 +7,21 @@ body {
 
 .app {
   background: white;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 2px;
+}
+
+.app:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .header {
   height: 60px;
-  background: #666;
+  background: #333;
+  font-size: 16px;
+  color: rgba(153, 153, 153, 0.8);
+  border-radius: 2px 2px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +41,7 @@ body {
 
 .display__calculation {
   height: 135px;
-  font-size: 18px;
+  font-size: 20px;
   color: #cccccc;
 }
 
