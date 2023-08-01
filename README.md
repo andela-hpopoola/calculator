@@ -1939,7 +1939,7 @@ Run this command to get a full list of the options available:
 serve -h
 ```
 
-### Other Solutions
+### Other Solution
 
 You don’t necessarily need a static server in order to run a Create React App project in production. It works just as fine integrated into an existing dynamic one.
 
