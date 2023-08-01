@@ -1939,7 +1939,7 @@ Run this command to get a full list of the options available:
 serve -h
 ```
 
-### Other Solutions
+### Other Solution
 
 You don’t necessarily need a static server in order to run a Create React App project in production. It works just as fine integrated into an existing dynamic one.
 
@@ -2313,7 +2313,7 @@ See this [blog post](https://medium.com/@omgwtfmarc/deploying-create-react-app-t
 
 ### [Surge](https://surge.sh/)
 
-Install the Surge CLI if you haven’t already by running `npm install -g surge`. Run the `surge` command and log in you or create a new account.
+Installing the Surge CLI if you haven’t already by running `npm install -g surge`. Run the `surge` command and log in you or create a new account.
 
 When asked about the project path, make sure to specify the `build` folder, for example:
 

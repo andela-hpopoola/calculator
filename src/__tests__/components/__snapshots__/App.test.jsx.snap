@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot matches the existing snapshot 1`] = `
+<section
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 offset-0 col-sm-8 offset-sm-2 col-md-4 offset-md-4"
+    >
+      <main
+        className="app"
+      >
+        <div
+          className="header"
+        >
+          Calculator
+        </div>
+        <section
+          className="display"
+        >
+          <header
+            className="display__calculation"
+          />
+          <main
+            className="display__result"
+          >
+            0
+          </main>
+        </section>
+        <div
+          className="container"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="button col-3 button--type-clear"
+              onClick={[Function]}
+            >
+              AC
+            </div>
+            <div
+              className="button col-3 button--type-plusMinus"
+              onClick={[Function]}
+            >
+              +/-
+            </div>
+            <div
+              className="button col-3 button--type-delete"
+              onClick={[Function]}
+            >
+              &lt;Del
+            </div>
+            <div
+              className="button col-3 button--type-operator"
+              onClick={[Function]}
+            >
+              /
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              7
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              8
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              9
+            </div>
+            <div
+              className="button col-3 button--type-operator"
+              onClick={[Function]}
+            >
+              *
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              4
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              5
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              6
+            </div>
+            <div
+              className="button col-3 button--type-operator"
+              onClick={[Function]}
+            >
+              -
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              1
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              2
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              3
+            </div>
+            <div
+              className="button col-3 button--type-operator"
+              onClick={[Function]}
+            >
+              +
+            </div>
+            <div
+              className="button col-3 button--type-clear"
+              onClick={[Function]}
+            >
+              C
+            </div>
+            <div
+              className="button col-3 button--type-decimal"
+              onClick={[Function]}
+            >
+              .
+            </div>
+            <div
+              className="button col-3 button--type-number"
+              onClick={[Function]}
+            >
+              0
+            </div>
+            <div
+              className="button col-3 button--type-equalsTo"
+              onClick={[Function]}
+            >
+              =
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+`;
